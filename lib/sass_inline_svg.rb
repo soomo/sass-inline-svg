@@ -1,8 +1,8 @@
 require "sass_inline_svg/version"
-require "sass"
+require "sassc"
 require "cgi"
 
-module Sass::Script::Functions
+module SassC::Script::Functions
 
   # Alias function to comply with old documentation
   def svg_inline(path, repl = nil)
@@ -36,7 +36,7 @@ module Sass::Script::Functions
 
     encoded = CGI::escape(svg).gsub("+", "%20")
     encoded_url = "url('data:image/svg+xml;charset=utf-8," + encoded + "')"
-    Sass::Script::String.new(encoded_url)
+    SassC::Script::String.new(encoded_url)
     
   end
 
